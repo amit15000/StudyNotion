@@ -5,7 +5,7 @@ function Navbar() {
   return (
     <div>
       <nav>
-        <ul>
+        <ul className="flex">
           <li>
             <NavLink to={"/home"}>
               <img src={logo} alt="Logo" />
