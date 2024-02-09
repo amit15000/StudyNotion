@@ -1,22 +1,25 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/Logo.png";
+import { toast } from "react-toastify";
+
 function Navbar(props) {
   let isLoggedIn = props.isLoggedIn;
   let setIsLoggedIn = props.setIsLoggedIn;
+
   return (
     <div>
       <nav className="flex justify-between">
         <ul className="flex">
           <li>
-            <NavLink to={"/home"}>
+            <NavLink to={"/"}>
               <img src={logo} alt="Logo" />
             </NavLink>
           </li>
         </ul>
         <ul className="flex gap-x-5">
           <li>
-            <NavLink to={"/home"}>
+            <NavLink to={"/"}>
               <button>Home</button>
             </NavLink>
           </li>
@@ -44,7 +47,14 @@ function Navbar(props) {
           ) : (
             <>
               <Link to={"/logout"}>
-                <button>Log Out</button>
+                <button
+                  onClick={() => {
+                    setIsLoggedIn(false);
+                    toast("Logged Out");
+                  }}
+                >
+                  Log Out
+                </button>
               </Link>
               <Link to={"/dasboard"}>
                 <button>Dashboard</button>
