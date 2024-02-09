@@ -47,7 +47,7 @@ function LoginForm() {
             onChange={changeHandler}
           />
           <span onClick={() => setShowPass((prev) => !prev)}>
-            {showPass ? IoMdEye : IoMdEyeOff}
+            {showPass ? <IoMdEye /> : <IoMdEyeOff />}
           </span>
           <Link to="#">
             <p>Forgot Password</p>
