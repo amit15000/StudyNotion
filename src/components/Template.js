@@ -1,5 +1,7 @@
 import React from "react";
 import frameImage from "../assets/frame.webp";
+import SignupForm from "./SignupForm";
+import LoginForm from "./LoginForm";
 
 function Template({ title, desc1, desc2, image, formType, setisLoggedIn }) {
   return (
