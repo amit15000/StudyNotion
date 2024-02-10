@@ -38,7 +38,7 @@ function LoginForm({ setIsLoggedIn }) {
           </p>
           <input
             required
-            type="text"
+            type="email"
             value={formData.email}
             placeholder="Enter Email ID"
             name="email"
