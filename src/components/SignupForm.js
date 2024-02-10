@@ -12,9 +12,10 @@ function SignUp({ setIsLoggedIn }) {
     password: "",
     confirmPassword: "",
   });
-
+  const [accountType, setAccountType] = useState("Student");
   const [showPass, setShowPass] = useState(false);
-
+  const [showConfirmPass, setshowConfirmPass] = useState(false);
+  console.log(accountType);
   const changeHandler = (e) => {
     setFormData((prevData) => ({
       ...prevData,
@@ -33,9 +34,27 @@ function SignUp({ setIsLoggedIn }) {
   };
   return (
     <div>
-      <div>
-        <button>Student</button>
-        <button>Instructor</button>
+      <div className="flex bg-slate-800 rounded-full w-max gap-x-1 px-2 py-1 mt-4 text-sm mt-4">
+        <button
+          className={`${
+            accountType === "Student"
+              ? " bg-black px-4 py-2 rounded-full "
+              : " bg-transparent text-slate-400 rounded-full px-4 py-1 transition-all duration-200"
+          }`}
+          onClick={() => setAccountType("Student")}
+        >
+          Student
+        </button>
+        <button
+          className={`${
+            accountType === "Instructor"
+              ? " bg-black px-4 py-2 rounded-full "
+              : " bg-transparent text-slate-400 rounded-full px-4 py-1 transition-all duration-200"
+          }`}
+          onClick={() => setAccountType("Instructor")}
+        >
+          Instructor
+        </button>
       </div>
       <form onSubmit={submitHandler}>
         <div className="flex justify-between items-center mt-3">
@@ -98,7 +117,7 @@ function SignUp({ setIsLoggedIn }) {
                 className=" bg-slate-800  rounded-lg px-3 py-2 mt-2 w-full border-b-[1px] border-b-neutral-400 "
               />
               <span
-                className="absolute right-2 top-9 text-slate-400 cursor-pointer"
+                className="absolute right-2 top-10 text-slate-400 cursor-pointer"
                 onClick={() => setShowPass((prev) => !prev)}
               >
                 {showPass ? <IoMdEye /> : <IoMdEyeOff />}
@@ -110,7 +129,7 @@ function SignUp({ setIsLoggedIn }) {
               </p>
               <input
                 required
-                type="password"
+                type={showConfirmPass ? "text" : "password"}
                 name="confirmPassword"
                 value={formData.confirmPassword}
                 onChange={changeHandler}
@@ -118,15 +137,17 @@ function SignUp({ setIsLoggedIn }) {
                 className=" bg-slate-800  rounded-lg px-3 py-2 mt-2 w-full border-b-[1px] border-b-neutral-400 "
               />
               <span
-                className="absolute right-2 top-9 text-slate-400 cursor-pointer"
-                onClick={() => setShowPass((prev) => !prev)}
+                className="absolute right-2 top-10 text-slate-400 cursor-pointer"
+                onClick={() => setshowConfirmPass((prev) => !prev)}
               >
-                {showPass ? <IoMdEye /> : <IoMdEyeOff />}
+                {showConfirmPass ? <IoMdEye /> : <IoMdEyeOff />}
               </span>
             </label>
           </div>
         </div>
-        <button>Create Account</button>
+        <button className="w-full bg-yellow-300 text-center py-1 rounded-lg text-black font-medium mt-4">
+          Create Account
+        </button>
       </form>
     </div>
   );
