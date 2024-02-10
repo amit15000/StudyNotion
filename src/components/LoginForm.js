@@ -28,10 +28,13 @@ function LoginForm({ setIsLoggedIn }) {
 
   return (
     <div>
-      <form onSubmit={submitHandler}>
+      <form
+        onSubmit={submitHandler}
+        className="flex flex-col w-full mt-6 gap-y-3  "
+      >
         <label>
-          <p>
-            Email Address<sup>*</sup>
+          <p className="text-sm ">
+            Email Address<sup className=" text-red-500">*</sup>
           </p>
           <input
             required
@@ -40,11 +43,12 @@ function LoginForm({ setIsLoggedIn }) {
             placeholder="Enter Email ID"
             name="email"
             onChange={changeHandler}
+            className=" bg-slate-800 rounded-lg px-3 py-1 mt-1 w-full border-b-[0.1px] border-b-neutral-400		"
           />
         </label>
-        <label>
+        <label className="relative w-full">
           <p>
-            Password<sup>*</sup>
+            Password<sup className="text-red-500">*</sup>
           </p>
           <input
             required
@@ -53,15 +57,23 @@ function LoginForm({ setIsLoggedIn }) {
             placeholder="Enter Password"
             name="password"
             onChange={changeHandler}
+            className=" bg-slate-800  rounded-lg px-3 py-1 mt-1 w-full border-b-[1px] border-b-neutral-400 "
           />
-          <span onClick={() => setShowPass((prev) => !prev)}>
+          <span
+            className="absolute right-2 top-9 text-slate-400"
+            onClick={() => setShowPass((prev) => !prev)}
+          >
             {showPass ? <IoMdEye /> : <IoMdEyeOff />}
           </span>
           <Link to="#">
-            <p>Forgot Password</p>
+            <p className="text-xs text-blue-200 w-max ml-auto mt-1">
+              Forgot Password ?
+            </p>
           </Link>
         </label>
-        <button>Sign In</button>
+        <button className="w-full bg-yellow-300 text-center py-1 rounded-lg text-black font-medium">
+          Sign In
+        </button>
       </form>
     </div>
   );

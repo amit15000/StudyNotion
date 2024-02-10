@@ -11,7 +11,7 @@ import Dashboard from "./pages/Dashboard";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
-    <div className="w-screen h-full bg-slate-950 flex flex-col text-cyan-50">
+    <div className="w-screen h-screen bg-slate-950 flex flex-col text-cyan-50">
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
 
       <Routes>
