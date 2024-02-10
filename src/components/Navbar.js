@@ -60,7 +60,7 @@ function Navbar(props) {
                   Log Out
                 </button>
               </Link>
-              <Link to={"/dasboard"}>
+              <Link to={"/dashboard"}>
                 <button>Dashboard</button>
               </Link>
             </>
