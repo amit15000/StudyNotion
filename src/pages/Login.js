@@ -1,7 +1,7 @@
 import React from "react";
 import Template from "../components/Template";
 import loginImg from "../assets/Login Image.png";
-function Login({ setisLoggedIn }) {
+function Login({ setIsLoggedIn }) {
   return (
     <Template
       title="Welcome Back"
@@ -9,7 +9,7 @@ function Login({ setisLoggedIn }) {
       desc2="Education to future-proof your career."
       image={loginImg}
       formType="login"
-      setisLoggedIn={setisLoggedIn}
+      setIsLoggedIn={setIsLoggedIn}
     />
   );
 }

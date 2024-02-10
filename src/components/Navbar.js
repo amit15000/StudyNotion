@@ -9,7 +9,7 @@ function Navbar(props) {
 
   return (
     <div>
-      <nav className="flex justify-between">
+      <nav className="flex justify-between w-11/12 max-w-[1280px] py-4 mx-auto">
         <ul className="flex">
           <li>
             <NavLink to={"/"}>
@@ -17,7 +17,7 @@ function Navbar(props) {
             </NavLink>
           </li>
         </ul>
-        <ul className="flex gap-x-5">
+        <ul className="flex text-cyan-50 gap-x-6">
           <li>
             <NavLink to={"/"}>
               <button>Home</button>
@@ -34,14 +34,18 @@ function Navbar(props) {
             </NavLink>
           </li>
         </ul>
-        <ul className="flex gap-x-5">
+        <ul className="flex text-cyan-50 gap-x-5">
           {!isLoggedIn ? (
             <>
               <Link to={"/login"}>
-                <button>Login</button>
+                <button className=" bg-slate-800 py-1 px-3 rounded-lg border border-slate-900">
+                  Login
+                </button>
               </Link>
               <Link to={"/signup"}>
-                <button>Sign Up</button>
+                <button className=" bg-slate-800 py-1 px-3 rounded-lg border border-slate-900">
+                  Sign Up
+                </button>
               </Link>
             </>
           ) : (

@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
-function SignUp() {
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+function SignUp({ setIsLoggedIn }) {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -18,13 +21,23 @@ function SignUp() {
       [e.target.name]: e.target.value,
     }));
   };
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (formData.password !== formData.confirmPassword) {
+      toast.warning("Password do not match");
+      return;
+    }
+    setIsLoggedIn(true);
+    toast.success("Account Created");
+    navigate("/dashboard");
+  };
   return (
     <div>
       <div>
         <button>Student</button>
         <button>Instructor</button>
       </div>
-      <form>
+      <form onSubmit={submitHandler}>
         <div>
           <label>
             <p>

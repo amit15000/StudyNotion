@@ -3,24 +3,35 @@ import frameImage from "../assets/frame.webp";
 import SignupForm from "./SignupForm";
 import LoginForm from "./LoginForm";
 
-function Template({ title, desc1, desc2, image, formType, setisLoggedIn }) {
+function Template({ title, desc1, desc2, image, formType, setIsLoggedIn }) {
   return (
-    <div>
+    <div className="flex justify-between w-11/12 max-w-[1280px] py-4 mx-auto">
       <div>
-        <h1>{title}</h1>
-        <p>
-          <span>{desc1}</span>
-          <span>{desc2}</span>
+        <h1 className="font-semibold text-3xl leading-9">{title}</h1>
+        <p className="mt-2">
+          <span className=" text-slate-040 text-sm leading-3 ">{desc1}</span>
+          <br />
+          <span className=" text-cyan-300 text-sm leading-3 italic ">
+            {desc2}
+          </span>
         </p>
-        {formType === "signup" ? <SignupForm /> : <LoginForm />}
+        {formType === "signup" ? (
+          <SignupForm setIsLoggedIn={setIsLoggedIn} />
+        ) : (
+          <LoginForm setIsLoggedIn={setIsLoggedIn} />
+        )}
 
-        <div>
+        <div className="flex w-screen items-center my-5 gap-x-4 ">
           <div></div>
           <p>OR</p>
           <div></div>
         </div>
         <button>
-          <p>Sign in with Google</p>
+          {formType === "signup" ? (
+            <p>Sign Up with Google</p>
+          ) : (
+            <p>Sign In with Google</p>
+          )}
         </button>
       </div>
       <div>
