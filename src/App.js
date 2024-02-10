@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home isLoggedIn={isLoggedIn} />}></Route>
         <Route
-          path="/StudyNotion"
+          path="/StudyNotion/"
           element={<Home isLoggedIn={isLoggedIn} />}
         ></Route>
         <Route
