@@ -60,7 +60,7 @@ function LoginForm({ setIsLoggedIn }) {
             className=" bg-slate-800  rounded-lg px-3 py-1 mt-1 w-full border-b-[1px] border-b-neutral-400 "
           />
           <span
-            className="absolute right-2 top-9 text-slate-400"
+            className="absolute right-2 top-9 text-slate-400 cursor-pointer"
             onClick={() => setShowPass((prev) => !prev)}
           >
             {showPass ? <IoMdEye /> : <IoMdEyeOff />}
