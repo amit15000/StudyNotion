@@ -94,7 +94,7 @@ function SignUp({ setIsLoggedIn }) {
             </p>
             <input
               required
-              type="text"
+              type="email"
               name="email"
               value={formData.email}
               onChange={changeHandler}
